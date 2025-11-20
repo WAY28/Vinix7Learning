@@ -1,0 +1,549 @@
+/* General Resets & Body Styles */
+:root {
+    --primary-color: #4e73df; /* Biru utama (Dashboard) */
+    --secondary-color: #1f2d64;
+    --danger-color: #e74a3b;
+    --background-light: #f5f7fc; /* Background (Dashboard) */
+    --text-dark: #333;
+    --text-muted: #606a86; /* Text Muted (Dashboard) */
+    --footer-dark: #2c3e50; /* Warna Footer (Dashboard) */
+    --card-bg: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.08); /* Shadow (Dashboard) */
+    --border-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light); /* Menggunakan background Dashboard */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px; /* Padding disamakan dengan main-content Dashboard */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Utilities & Tombol (Sama seperti Dashboard) --- */
+.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Logout merah (btn-danger) - SAMA PERSIS dengan Dashboard */
+.btn-danger {
+    background: var(--danger-color);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--danger-color);
+    transition: 0.3s;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+    border-color: #c0392b;
+}
+
+/* --- NAVBAR (Style dari dashboard.css) --- */
+.navbar {
+    width: 100%;
+    display: grid;
+    /* Kolom: Brand (kiri), Navigasi Utama (tengah), Aksi User (kanan) */
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    padding: 15px 40px; /* Padding disamakan dengan Dashboard */
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand { /* Mengganti .brand-name menjadi .brand */
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    justify-self: start;
+}
+
+.main-nav { /* Mengganti .nav-links menjadi .main-nav */
+    display: flex;
+    gap: 25px;
+    justify-self: center; 
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s;
+    /* Hapus padding-bottom dan pseudo-element :after yang lama */
+    padding-bottom: 0; 
+}
+
+/* Style active dan hover Navbar SAMA PERSIS dengan Dashboard */
+.main-nav a.active, .main-nav a:hover {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Hapus style yang tidak relevan dari navbar lama:
+.nav-links a.active::after { ... }
+.nav-links a i { ... }
+.user-actions .notification-icon { ... }
+.nav-button { ... }
+*/
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Menggunakan gap dari Dashboard */
+    justify-self: end;
+}
+
+.user-avatar { /* Mengganti .user-avatar menjadi .profile-img */
+    width: 35px; /* Ukuran disamakan dengan Dashboard */
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 0; /* Hapus margin kanan yang lama */
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Style untuk link profile (wrapper di dashboard) */
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--background-light); /* Background konsisten */
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--secondary-color); /* Warna disamakan dengan secondary color dashboard */
+}
+
+.hero-section p {
+    font-size: 1.1em;
+    color: var(--text-muted); /* Warna disamakan dengan text-muted dashboard */
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Subscription Section --- */
+.subscription-section {
+    padding: 60px 0;
+}
+
+.subscription-section h2 {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: var(--secondary-color); /* Warna disamakan dengan secondary color dashboard */
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.package-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.package-card h3 {
+    font-size: 1.6em;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+.package-card .level-package {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.level-tabs, .duration-tabs {
+    display: flex;
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.level-tabs button, .duration-tabs button {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    background-color: transparent;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 500;
+}
+
+.level-tabs button.active, .duration-tabs button.active {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.package-card .price {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.learning-path-label {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.custom-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.custom-select select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 1em;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+.custom-select .select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.purchase-button {
+    display: block;
+    width: 100%;
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.purchase-button:hover {
+    background-color: #3e5faf; /* Darker blue dashboard */
+    transform: translateY(-2px);
+}
+
+.suitable-text {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.benefits-list {
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-size: 0.95em;
+}
+
+.benefits-list li i {
+    color: #28a745;
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+/* --- FAQ Section --- */
+.faq-section {
+    background-color: var(--card-bg);
+    padding: 60px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.faq-contact {
+    background-color: #f1f3f5;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+}
+
+.faq-contact p {
+    font-size: 1.1em;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.faq-contact a {
+    display: inline-block;
+    background-color: #25D366;
+    color: var(--card-bg);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.faq-contact a:hover {
+    background-color: #1FAF59;
+}
+
+.faq-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 18px 25px;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #f8f9fa;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+    color: var(--text-muted);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    color: var(--text-muted);
+    font-size: 0.95em;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 100px;
+    padding: 10px 25px 20px 25px;
+}
+
+/* --- FOOTER (Diadaptasi dari landing.php) --- */
+footer {
+    background: var(--footer-dark);
+    color: white;
+    padding: 40px 100px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.brand-footer {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.brand-info p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 2;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    opacity: 0.8;
+}
+
+.copyright {
+    margin-top: 20px !important;
+    font-size: 12px !important;
+}
+
+
+/* --- Media Queries --- */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .footer-grid {
+        padding: 0 20px;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    .footer-col {
+        min-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar Mobile */
+    .navbar {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+    .brand {
+        justify-self: center;
+    }
+    .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-around;
+        margin: 10px 0;
+    }
+    .user-actions {
+        justify-self: center;
+    }
+    
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer Mobile */
+    .footer-grid {
+        flex-direction: column;
+    }
+    .footer-col {
+        min-width: 100%;
+    }
+    .copyright {
+        text-align: center;
+    }
+}

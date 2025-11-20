@@ -1,0 +1,414 @@
+/* dashboard.css
+   Styling untuk dashboard setelah login, konsisten dengan landing.css
+*/
+
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #1f2d64;
+    --danger-color: #e74a3b;
+    --background-light: #f5f7fc;
+    --text-dark: #333;
+    --text-muted: #606a86;
+    --footer-dark: #2c3e50;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--background-light);
+    color: var(--text-dark);
+}
+
+section {
+    padding: 40px 0; /* Ubah padding section agar tidak terlalu besar */
+}
+
+/* --- Utilities --- */
+.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 14px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: #3e5faf;
+    border-color: #3e5faf;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: rgba(78, 115, 223, 0.1);
+}
+
+/* Logout merah */
+.btn-danger {
+    background: var(--danger-color);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--danger-color);
+    transition: 0.3s;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+    border-color: #c0392b;
+}
+
+
+/* --- NAVBAR (Menggunakan Grid untuk sentralisasi) --- */
+.navbar {
+    width: 100%;
+    display: grid;
+    /* Kolom: Brand (kiri), Navigasi Utama (tengah), Aksi User (kanan) */
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    padding: 15px 80px;
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    justify-self: start;
+}
+
+.main-nav {
+    display: flex;
+    gap: 25px;
+    justify-self: center; /* PENTING: Untuk memposisikan di tengah */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.main-nav a.active, .main-nav a:hover {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-self: end;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* --- MAIN CONTENT & GREETING HERO --- */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 60px 40px;
+}
+
+.greeting-hero {
+    display: flex;
+    padding: 40px 0;
+    align-items: center;
+    gap: 40px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.hero-content {
+    flex: 1.5;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.hero-illustration {
+    flex: 1;
+    text-align: right;
+}
+
+/* --- STUDY PROGRESS SECTION & NEW PATH --- */
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    text-align: left; /* Alignment di Dashboard lebih baik di kiri */
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+    margin-bottom: -1px; /* Untuk menutupi garis bawah */
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.hidden-content {
+    display: none;
+}
+
+.no-course-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+}
+
+/* Course Card Style (Rapi seperti landing.php) */
+.course-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.course-thumbnail {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+}
+
+.course-details {
+    padding: 15px;
+}
+
+.course-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.meta-info {
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* --- PROGRESS BAR STYLES --- */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.progress-bar-wrap {
+    flex-grow: 1;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 0.4s ease;
+}
+
+.progress-bar.complete {
+    background: #4caf50; 
+}
+
+.progress-percent {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+    width: 35px; 
+    text-align: right;
+}
+
+.progress-percent.complete-text {
+    color: #4caf50; 
+}
+
+.btn-card-action {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-certificate {
+    background: transparent;
+    border: 1px solid #4caf50;
+    color: #4caf50;
+}
+
+.btn-certificate:hover {
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.completed-card .btn-secondary {
+    display: block;
+}
+
+
+/* --- START A NEW LEARNING PATH SECTION --- */
+.new-path {
+    margin-top: 60px;
+}
+
+.path-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.path-header h2 {
+    margin-bottom: 0;
+}
+
+.search-box input {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    width: 250px;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+
+/* --- FOOTER (Diadaptasi dari landing.php) --- */
+footer {
+    background: var(--footer-dark);
+    color: white;
+    padding: 40px 100px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.brand-footer {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.brand-info p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 2;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    opacity: 0.8;
+}
+
+.copyright {
+    margin-top: 20px !important;
+    font-size: 12px !important;
+}

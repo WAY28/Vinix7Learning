@@ -1,0 +1,157 @@
+/* ============================================== */
+/* STYLING KHUSUS UNTUK TAMPILAN ISI MODUL (module_page.jpg) */
+/* ============================================== */
+
+body {
+    background-color: #fff; /* Latar belakang putih penuh untuk modul */
+}
+
+/* --- TOPBAR MODUL (Menggantikan Navbar default) --- */
+.module-topbar {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.module-topbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-arrow {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.module-title-topbar {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+/* --- GRID KONTEN MODUL --- */
+.module-content-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Sidebar 300px, Konten 1fr */
+    max-width: 1200px;
+    margin: 0 auto;
+    height: calc(100vh - 120px); /* Memenuhi sisa tinggi layar */
+    overflow: hidden; /* Konten tidak melebihi batas */
+}
+
+/* --- SIDEBAR NAVIGASI --- */
+.module-sidebar {
+    padding-top: 20px;
+    border-right: 1px solid #eee;
+    background: #f7f7f7;
+    overflow-y: auto;
+    padding-bottom: 80px; /* Ruang untuk nav bawah */
+}
+
+.sidebar-group {
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.sidebar-group-title {
+    font-size: 0.9em;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.lesson-list {
+    list-style: none;
+    padding: 0;
+}
+
+.lesson-item {
+    font-size: 0.95em;
+    color: var(--text-dark);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.lesson-item:hover {
+    background-color: #f0f0f0;
+}
+
+.lesson-item.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    border-left-color: var(--primary-color);
+}
+
+/* --- MAIN LESSON KONTEN --- */
+.module-main-lesson {
+    padding: 30px 40px;
+    overflow-y: auto;
+    line-height: 1.7;
+}
+
+.lesson-title-main {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.lesson-subtitle {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.principle-list p {
+    margin-bottom: 5px;
+}
+
+.principle-list p strong {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+}
+
+/* --- BOTTOM NAVIGASI --- */
+.module-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.03);
+    padding: 10px 40px;
+    z-index: 100;
+}
+
+.bottom-nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-btn-arrow {
+    padding: 8px 15px;
+    font-weight: 500;
+}

@@ -1,0 +1,122 @@
+/* ======================================== */
+/* NAVBAR - UNTUK SEMUA HALAMAN */
+/* ======================================== */
+
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #1f2d64;
+    --danger-color: #e74a3b;
+    --text-muted: #606a86;
+    --border-radius-base: 8px;
+}
+
+.navbar-wrapper {
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 40px;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.main-nav {
+    display: flex;
+    gap: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.main-nav a.active, 
+.main-nav a:hover {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-base);
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--danger-color);
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+    border-color: #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .main-nav {
+        position: static;
+        transform: none;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .brand {
+        order: 1;
+    }
+    
+    .user-actions {
+        order: 2;
+    }
+}
